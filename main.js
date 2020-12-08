@@ -5,10 +5,30 @@ const formSearch = document.querySelector('.form-search'),
     dropdownCitiesTo = formSearch.querySelector('.dropdown__cities-to'),
     inputDateDepart = formSearch.querySelector('.input__date-depart');
 
+const API_KEY = 'a48436647c3ebcae5703dcab2dfa5449',
+    citiesApi = 'cities.json',
+    priceApi = 'http://min-prices.aviasales.ru/calendar_preload',
+    proxy = 'https://cors-anywhere.herokuapp.com/';
 
-const cities = ['Москва', 'Киев', 'Харьков', 'Одесса', 'Львов', 'Кировоград',
-    'Минск', 'Санкт-Петербург', 'Волгоград', 'Днепр', 'Ужгород', 'Сумы'
-];
+let cities = [];
+
+//Получение данных с базы
+const getData = (url, callback) => {
+    const request = new XMLHttpRequest();
+
+    request.open('GET', url);
+    request.addEventListener('readystatechange', () => {
+        if (request.readyState !== 4) return null;
+
+        if (request.status === 200) {
+            callback(request.response);
+        } else {
+            console.error(request.status);
+        }
+    });
+    request.send();
+};
+
 
 //показ списка поиска  - город вылета
 const showCities = (input, dropdown) => {
@@ -19,7 +39,8 @@ const showCities = (input, dropdown) => {
 
         //Фильтрация на содержание введенных букв
         const citiesFilter = cities.filter((item) => {
-            const fixItem = item.toLowerCase();
+            if(!item.name) return false;
+            const fixItem = item.name.toLowerCase();
             return fixItem.includes(input.value.toLowerCase());
         });
 
@@ -28,13 +49,21 @@ const showCities = (input, dropdown) => {
         citiesFilter.forEach((item) => {
             const li = document.createElement('li');
             li.classList.add('dropdown__city');
-            li.textContent = item;
+            li.textContent = item.name;
             dropdown.append(li);
-            console.log(li);
         });
     }
 
 
+};
+
+//Выбор города из списка
+const handlerCity = (event, input, dropdown) => {
+    const target = event.target;
+    if (target.tagName.toLowerCase() === 'li') {
+        input.value = target.textContent;
+        dropdown.textContent = '';
+    }
 };
 
 
@@ -50,12 +79,18 @@ inputCitiesTo.addEventListener('input', () => {
 });
 
 
-dropdownCitiesFrom.addEventListener('click',(event)=>{
-    const target = event.target;
-    if(target.tagName.toLowerCase() === 'li')
-    {
-        inputCitiesFrom.value = target.textContent;
-        dropdownCitiesFrom.textContent = '';
-    }
+//Обработка выбора города с выпадающего списка - dropdownCitiesFrom
+dropdownCitiesFrom.addEventListener('click', (event) => {
+    handlerCity(event, inputCitiesFrom, dropdownCitiesFrom);
+});
 
+
+//Обработка выбора города с выпадающего списка - dropdownCitiesTo
+dropdownCitiesTo.addEventListener('click', (event) => {
+    handlerCity(event, inputCitiesTo, dropdownCitiesTo);
+});
+
+
+getData(citiesApi, (data) => {
+     cities = (JSON.parse(data));
 });
