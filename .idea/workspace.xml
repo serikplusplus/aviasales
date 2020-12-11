@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce271cec-f5de-4a11-b897-6dc0fc24d305" name="Default Changelist" comment="Create dropdown list on inputCitiesFrom">
+    <list default="true" id="ce271cec-f5de-4a11-b897-6dc0fc24d305" name="Default Changelist" comment="Create search real cities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +26,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/.ssh/id_rsa" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -49,7 +51,12 @@
       <workItem from="1607366722283" duration="1818000" />
       <workItem from="1607368614213" duration="7344000" />
       <workItem from="1607377175242" duration="108000" />
-      <workItem from="1607418610140" duration="8864000" />
+      <workItem from="1607418610140" duration="9401000" />
+      <workItem from="1607445262329" duration="340000" />
+      <workItem from="1607616369999" duration="45000" />
+      <workItem from="1607617493064" duration="4930000" />
+      <workItem from="1607627575796" duration="1070000" />
+      <workItem from="1607684279374" duration="16957000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1607370136889</created>
@@ -65,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607376442360</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Create search real cities">
+      <created>1607428599988</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607428599988</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +147,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
     <MESSAGE value="Create dropdown list on inputCitiesFrom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create dropdown list on inputCitiesFrom" />
+    <MESSAGE value="Create search real cities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create search real cities" />
   </component>
 </project>
